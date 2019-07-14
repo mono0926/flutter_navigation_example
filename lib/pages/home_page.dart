@@ -10,9 +10,7 @@ class HomePage extends StatelessWidget {
         title: const Text('Navigation Example'),
       ),
       floatingActionButton: const IncrementActionButton(),
-      body: Center(
-        child: const CounterText(),
-      ),
+      body: Center(child: const Body()),
     );
   }
 }
