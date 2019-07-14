@@ -1,37 +1,22 @@
 import 'package:flutter/material.dart';
-
-import 'pages/counter_page.dart';
-import 'pages/home_page.dart';
-import 'pages/modal_page.dart';
+import 'package:navigation_example/pages/detail_page.dart';
+import 'package:navigation_example/pages/list_page.dart';
 
 class Router {
   static const root = '/';
-  static const push = '/push';
-  static const modal = '/modal';
 
-  final _routes = <String, Widget Function(BuildContext)>{
-    root: (context) => const HomePage(),
-    push: (context) => const CounterPage(),
-  };
-  final _modalRoutes = <String, Widget Function(BuildContext)>{
-    modal: (context) => const ModalPage(),
+  final _routes = <String, Widget Function(BuildContext, RouteSettings)>{
+    root: (context, settings) => const ListPage(),
+    DetailPage.routeName: (context, settings) =>
+        DetailPage.fromRouteArguments(settings.arguments),
   };
 
   Route<dynamic> onGenerateRoute(RouteSettings settings) {
-    var pageBuilder = _routes[settings.name];
+    final pageBuilder = _routes[settings.name];
     if (pageBuilder != null) {
       return MaterialPageRoute<void>(
-        builder: pageBuilder,
+        builder: (context) => pageBuilder(context, settings),
         settings: settings,
-      );
-    }
-
-    pageBuilder = _modalRoutes[settings.name];
-    if (pageBuilder != null) {
-      return MaterialPageRoute<void>(
-        builder: pageBuilder,
-        settings: settings,
-        fullscreenDialog: true,
       );
     }
 
