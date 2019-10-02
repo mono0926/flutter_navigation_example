@@ -24,16 +24,22 @@ class ListPage extends StatelessWidget {
   }
 }
 
-class _Tile extends StatelessWidget {
+class _Tile extends StatefulWidget {
   const _Tile({Key key, @required this.index}) : super(key: key);
 
   final int index;
 
   @override
+  _TileState createState() => _TileState();
+}
+
+class _TileState extends State<_Tile> with AutomaticKeepAliveClientMixin {
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     final counter = Provider.of<Counter>(context);
     return ListTile(
-      title: Text('Counter $index'),
+      title: Text('Counter ${widget.index}'),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -57,4 +63,8 @@ class _Tile extends StatelessWidget {
       },
     );
   }
+
+  @override
+  bool get wantKeepAlive =>
+      Provider.of<Counter>(context, listen: false).count > 0;
 }
