@@ -16,7 +16,10 @@ class ListPage extends StatelessWidget {
         itemCount: 100,
         itemBuilder: (context, i) => ChangeNotifierProvider(
           builder: (context) => Counter(),
-          child: _Tile(index: i),
+          child: _Tile(
+            key: ValueKey(i),
+            index: i,
+          ),
         ),
         separatorBuilder: (context, _) => const Divider(height: 0),
       ),
