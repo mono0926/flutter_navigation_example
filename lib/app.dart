@@ -9,7 +9,6 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Navigation Example',
-//      home: const HomePage(),
       initialRoute: Router.root,
       onGenerateRoute: Router().onGenerateRoute,
     );
