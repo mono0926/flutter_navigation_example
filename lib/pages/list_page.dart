@@ -15,9 +15,9 @@ class ListPage extends StatelessWidget {
       body: ListView.separated(
         itemCount: 100,
         itemBuilder: (context, i) => ChangeNotifierProvider(
+          key: ValueKey(i),
           builder: (context) => Counter(),
           child: _Tile(
-            key: ValueKey(i),
             index: i,
           ),
         ),
