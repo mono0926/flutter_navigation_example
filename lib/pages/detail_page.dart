@@ -36,7 +36,7 @@ class _Page extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Counter Detail'),
       ),
-      body: Center(child: const _CounterText()),
+      body: const Center(child: _CounterText()),
       floatingActionButton: const _IncrementActionButton(),
     );
   }
@@ -48,7 +48,7 @@ class _IncrementActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final counter = Provider.of<Counter>(context, listen: false);
     return FloatingActionButton(
-      child: Icon(Icons.add),
+      child: const Icon(Icons.add),
       onPressed: counter.increment,
     );
   }
