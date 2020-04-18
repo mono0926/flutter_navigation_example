@@ -48,7 +48,7 @@ class _TileState extends State<_Tile> with AutomaticKeepAliveClientMixin {
         children: [
           Text(
             '${counter.count}',
-            style: Theme.of(context).textTheme.subhead,
+            style: Theme.of(context).textTheme.subtitle1,
           ),
           const SizedBox(width: 16),
           IconButton(

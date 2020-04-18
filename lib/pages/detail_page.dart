@@ -62,7 +62,7 @@ class _CounterText extends StatelessWidget {
     final counter = Provider.of<Counter>(context);
     return Text(
       'count: ${counter.count}',
-      style: Theme.of(context).textTheme.display1,
+      style: Theme.of(context).textTheme.headline4,
     );
   }
 }
