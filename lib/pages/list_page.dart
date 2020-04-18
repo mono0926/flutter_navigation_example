@@ -13,7 +13,7 @@ class ListPage extends StatelessWidget {
         title: const Text('Navigation Example'),
       ),
       body: ListView.separated(
-        itemCount: 10,
+        itemCount: 100,
         itemBuilder: (context, i) => ChangeNotifierProvider(
           builder: (context) => Counter(),
           child: _Tile(index: i),
