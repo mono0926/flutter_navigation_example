@@ -9,8 +9,7 @@ class DetailPage extends StatelessWidget {
   }) : super(key: key);
 
   // 誤検知っぽい(const付けるとas実行時エラーになる)
-  // ignore: prefer_const_constructors_in_immutables
-  DetailPage.fromRouteArguments(Object object)
+  const DetailPage.fromRouteArguments(Object object)
       : this._(counter: object as Counter);
 
   static Object toRouteArguments(Counter counter) => counter;
