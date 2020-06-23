@@ -61,7 +61,7 @@ class _TileState extends State<_Tile> with AutomaticKeepAliveClientMixin {
       onTap: () {
         Navigator.of(context).pushNamed(
           DetailPage.routeName,
-          arguments: DetailPage.toRouteArguments(counter),
+          arguments: DetailPageArgument(counter: counter),
         );
       },
     );

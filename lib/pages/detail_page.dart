@@ -3,32 +3,17 @@ import 'package:navigation_example/model/model.dart';
 import 'package:provider/provider.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage._({
-    Key key,
-    @required this.counter,
-  }) : super(key: key);
-
-  // 誤検知っぽい(const付けるとas実行時エラーになる)
-  const DetailPage.fromRouteArguments(Object object)
-      : this._(counter: object as Counter);
-
-  static Object toRouteArguments(Counter counter) => counter;
-
-  final Counter counter;
+  const DetailPage._({Key key}) : super(key: key);
 
   static const routeName = '/detail';
 
-  @override
-  Widget build(BuildContext context) {
+  static Widget wrapped(DetailPageArgument argument) {
     return ChangeNotifierProvider.value(
-      value: counter,
-      child: const _Page(),
+      value: argument.counter,
+      child: const DetailPage._(),
     );
   }
-}
 
-class _Page extends StatelessWidget {
-  const _Page({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,4 +49,11 @@ class _CounterText extends StatelessWidget {
       style: Theme.of(context).textTheme.headline4,
     );
   }
+}
+
+class DetailPageArgument {
+  const DetailPageArgument({
+    @required this.counter,
+  });
+  final Counter counter;
 }

@@ -8,7 +8,7 @@ class Router {
   final _routes = <String, Widget Function(BuildContext, RouteSettings)>{
     root: (context, settings) => const ListPage(),
     DetailPage.routeName: (context, settings) =>
-        DetailPage.fromRouteArguments(settings.arguments),
+        DetailPage.wrapped(settings.arguments as DetailPageArgument),
   };
 
   Route<dynamic> onGenerateRoute(RouteSettings settings) {
